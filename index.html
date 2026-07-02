@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calponta — Extração de Calcário e Dolomita</title>
+  <meta name="og:title" content="Calponta — Extração de Calcário e Dolomita" />
+  <meta name="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calponta — Extração de Calcário e Dolomita" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #2b2a26;
+      --accent: #c8842e;
+      --accent-dark: #a1671f;
+      --light-bg: #f4f2ee;
+      --white: #ffffff;
+      --text: #26241f;
+      --muted: #706b62;
+      --border: #e2ddd3;
+      --footer-bg: #1a1917;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    .nav-brand .logo-initial {
+      background: var(--accent);
+      color: var(--primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .btn-nav {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* HERO */
+    #home {
+      background: linear-gradient(135deg, var(--primary) 0%, #46443c 100%);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    #home h1 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+    #home p {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); color: var(--white); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* SECTIONS */
+    section { padding: 4rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* SOBRE */
+    #sobre { background: var(--light-bg); }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .sobre-grid { grid-template-columns: 1fr; } }
+    .sobre-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .sobre-box h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    .sobre-box p { font-size: 0.95rem; }
+
+    /* SERVIÇOS */
+    #servicos { background: var(--white); }
+    .services-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+    .services-list li::before {
+      content: "✔";
+      color: var(--accent-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .services-list li .cnae-tag {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* DADOS */
+    #dados { background: var(--light-bg); }
+    .dados-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .dados-table tr { border-bottom: 1px solid var(--border); }
+    .dados-table tr:last-child { border-bottom: none; }
+    .dados-table td {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.93rem;
+    }
+    .dados-table td:first-child {
+      font-weight: 700;
+      color: var(--primary);
+      width: 38%;
+      background: #ece6da;
+    }
+    .dados-table td:last-child { color: var(--text); }
+    .dados-table a { color: var(--accent-dark); text-decoration: none; }
+
+    /* SÓCIOS */
+    #socios { background: var(--white); }
+    .socios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .socios-grid { grid-template-columns: 1fr; } }
+    .socio-card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .socio-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .socio-card h3 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.15rem; }
+    .socio-card p { font-size: 0.85rem; margin-bottom: 0; }
+    .socio-card a { color: var(--accent-dark); text-decoration: none; }
+
+    /* MISSÃO */
+    #missao { background: var(--primary); color: var(--white); }
+    #missao h2 { color: var(--white); }
+    #missao p { color: rgba(255,255,255,0.78); }
+    .missao-highlight {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.2rem 1.4rem;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* CONTATO */
+    #contato-section { background: var(--light-bg); }
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 800px) { .contato-grid { grid-template-columns: 1fr; } }
+    .contato-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .contato-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .contato-card p { font-size: 0.93rem; }
+    .contato-card a { color: var(--accent-dark); text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--footer-bg);
+      color: rgba(255,255,255,0.6);
+      padding: 2rem;
+      font-size: 0.82rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,0.85); }
+    .footer-links {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .back-top {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 10px;
+      max-width: 660px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-box h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .modal-box h3 { font-size: 0.95rem; color: var(--accent-dark); margin: 1.2rem 0 0.4rem; }
+    .modal-box p, .modal-box li { font-size: 0.88rem; color: var(--muted); }
+    .modal-box ul { padding-left: 1.2rem; }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer; color: var(--muted);
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="home">
+  <a class="nav-brand" href="#home">
+    <span class="logo-initial">C</span>
+    CALPONTA
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Atividades</a></li>
+    <li><a href="#dados">Dados oficiais</a></li>
+    <li><a href="https://wa.me/5545981236578?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-nav" target="_blank" rel="noopener">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-section">
+  <div id="home" style="padding:5rem 2rem 4rem; background:linear-gradient(135deg, #2b2a26 0%, #46443c 100%); color:#fff; text-align:center;">
+    <h1>Calponta — Extração de Calcário e Dolomita</h1>
+    <p>Mineração e beneficiamento de calcário em Ponta Grossa/PR, com estrutura sólida e mais de 28 anos de atuação no setor mineral.</p>
+    <p style="color:rgba(255,255,255,0.82); max-width:680px; margin:0 auto 2rem;">Nosso compromisso é oferecer produtos e serviços em mineração com qualidade, segurança e responsabilidade técnica.</p>
+    <div class="hero-btns">
+      <a href="#servicos" class="btn-primary">Ver atividades</a>
+      <a href="https://wa.me/5545981236578?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-secondary" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-label">QUEM SOMOS?</div>
+    <h2>Quem somos</h2>
+    <p><strong>Calcario Calponta LTDA</strong>, nome fantasia <strong>Calponta</strong>, registrada sob o CNPJ 02.592.857/0001-73 e com início de atividades em 18/06/1998, está localizada em Ponta Grossa/PR.</p>
+    <p>A empresa atua na extração de calcário e dolomita e beneficiamento associado. Conforme seu cadastro público, é uma Sociedade Empresária Limitada, sem enquadramento como MEI ou Simples Nacional, com capital social de R$ 1.800.000,00.</p>
+    <div class="sobre-grid">
+      <div class="sobre-box">
+        <h3>Nossa atuação</h3>
+        <p>Conduzimos nosso trabalho com técnica, estrutura e responsabilidade, atuando na extração e beneficiamento de calcário, além de transporte de carga e fabricação de adubos e fertilizantes. Unimos experiência de mercado e compromisso com a qualidade em cada etapa do processo.</p>
+      </div>
+      <div class="sobre-box">
+        <h3>Endereço cadastral</h3>
+        <p>Fazenda Três Barras, Área 01, S/N<br>Itaiacoca<br>Ponta Grossa – PR, CEP 84110-000</p>
+        <p style="margin-top:0.8rem;">Na Calponta, valorizamos relações de confiança, comunicação clara e compromisso com a excelência em cada operação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">O QUE FAZEMOS</div>
+    <h2>Nossas atividades</h2>
+    <ul class="services-list">
+      <li>
+        <div>
+          Extração de calcário e dolomita e beneficiamento associado
+          <span class="cnae-tag">CNAE 08.10-0-04 (Atividade principal)</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          Transporte rodoviário de carga (intermunicipal, interestadual e internacional)
+          <span class="cnae-tag">CNAE 49.30-2-02</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          Transporte rodoviário de carga municipal
+          <span class="cnae-tag">CNAE 49.30-2-01</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          Atividades de apoio à extração de minerais não-metálicos
+          <span class="cnae-tag">CNAE 09.90-4-03</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          Fabricação de adubos e fertilizantes, exceto organo-minerais
+          <span class="cnae-tag">CNAE 20.13-4-02</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          Fabricação de adubos e fertilizantes organo-minerais
+          <span class="cnae-tag">CNAE 20.13-4-01</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- DADOS OFICIAIS -->
+<section id="dados">
+  <div class="container">
+    <div class="section-label">REGISTRO PÚBLICO</div>
+    <h2>Dados oficiais</h2>
+    <table class="dados-table">
+      <tr><td>Razão Social</td><td>Calcario Calponta LTDA</td></tr>
+      <tr><td>Nome Fantasia</td><td>Calponta</td></tr>
+      <tr><td>CNPJ</td><td>02.592.857/0001-73</td></tr>
+      <tr><td>Inscrição Estadual (PR)</td><td>90167942-84</td></tr>
+      <tr><td>Data de Abertura</td><td>18/06/1998 (28 anos e 14 dias)</td></tr>
+      <tr><td>Porte</td><td>Sem Enquadramento</td></tr>
+      <tr><td>Natureza Jurídica</td><td>Sociedade Empresária Limitada</td></tr>
+      <tr><td>Opção pelo MEI</td><td>Não</td></tr>
+      <tr><td>Opção pelo Simples</td><td>Não</td></tr>
+      <tr><td>Capital Social</td><td>R$ 1.800.000,00</td></tr>
+      <tr><td>Tipo</td><td>Matriz</td></tr>
+      <tr><td>Situação Cadastral</td><td>Ativa</td></tr>
+      <tr><td>Data da Situação</td><td>05/06/2001</td></tr>
+      <tr><td>Atividade Principal (CNAE)</td><td>08.10-0-04 — Extração de calcário e dolomita e beneficiamento associado</td></tr>
+      <tr><td>Endereço</td><td>Fazenda Três Barras, Área 01, S/N — Itaiacoca, Ponta Grossa – PR, CEP 84110-000</td></tr>
+      <tr><td>Município</td><td><a href="#dados">Ponta Grossa</a></td></tr>
+      <tr><td>Estado</td><td><a href="#dados">Paraná</a></td></tr>
+      <tr><td>Telefone</td><td>(45) 98123-6578</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SÓCIOS -->
+<section id="socios">
+  <div class="container">
+    <div class="section-label">QUADRO SOCIETÁRIO</div>
+    <h2>Sócios e administradores</h2>
+    <div class="socios-grid">
+      <div class="socio-card">
+        <div class="socio-avatar">A</div>
+        <div>
+          <h3>Ambar S/A - Participações e Agropecuária</h3>
+          <p>Sócio — Representado por Ney Batista Rosas<br><a href="https://cnpj.biz/24684544000188" target="_blank" rel="noopener">CNPJ: 24.684.544/0001-88</a></p>
+        </div>
+      </div>
+      <div class="socio-card">
+        <div class="socio-avatar">I</div>
+        <div>
+          <h3>Itaiá Mineração Indústria e Comércio LTDA</h3>
+          <p>Sócio — Representado por Ney Batista Rosas<br><a href="https://cnpj.biz/77741924000173" target="_blank" rel="noopener">CNPJ: 77.741.924/0001-73</a></p>
+        </div>
+      </div>
+      <div class="socio-card">
+        <div class="socio-avatar">M</div>
+        <div>
+          <h3>M Bras SA - Participações e Agropecuária</h3>
+          <p>Sócio — Representado por Norton Batista Rosas<br><a href="https://cnpj.biz/24146239000132" target="_blank" rel="noopener">CNPJ: 24.146.239/0001-32</a></p>
+        </div>
+      </div>
+      <div class="socio-card">
+        <div class="socio-avatar">N</div>
+        <div>
+          <h3>Ney Batista Rosas</h3>
+          <p>Administrador</p>
+        </div>
+      </div>
+      <div class="socio-card">
+        <div class="socio-avatar">N</div>
+        <div>
+          <h3>Norton Batista Rosas</h3>
+          <p>Administrador</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.85rem;">Qualificação do responsável pela empresa: Administrador.</p>
+  </div>
+</section>
+
+<!-- MISSÃO -->
+<section id="missao">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,0.6);">NOSSA MISSÃO</div>
+    <h2>Nossa missão</h2>
+    <p>A missão da Calcario Calponta LTDA é atuar na extração e beneficiamento de calcário e dolomita com qualidade, segurança e responsabilidade, contribuindo para o desenvolvimento do setor mineral em Ponta Grossa/PR e região.</p>
+    <div class="missao-highlight">
+      Nosso compromisso é transformar experiência de mercado, estrutura técnica e responsabilidade em resultados consistentes, sempre com foco em qualidade, segurança e crescimento sustentável.
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-section">
+  <div class="container">
+    <div class="section-label">FALE CONOSCO</div>
+    <h2>Contato</h2>
+    <div class="contato-grid">
+      <div class="contato-card">
+        <h3>📞 Telefone</h3>
+        <p><a href="tel:+5545981236578">(45) 98123-6578</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>💬 WhatsApp</h3>
+        <p><a href="https://wa.me/5545981236578?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Chamar no WhatsApp →</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>✉️ E-mail</h3>
+        <p><a href="mailto:contato@calcariocalpontaltda.com.br">contato@calcariocalpontaltda.com.br</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Calcario Calponta LTDA</strong><br>
+  CNPJ: 02.592.857/0001-73 | Data de Abertura: 18/06/1998 | Porte: Sem Enquadramento | Natureza Jurídica: Sociedade Empresária Limitada | Situação Cadastral: ATIVA | Tipo: MATRIZ | Capital Social: R$ 1.800.000,00 | Endereço: Fazenda Três Barras, Área 01, S/N, Itaiacoca, Ponta Grossa – PR, CEP 84110-000 | E-mail: contato@calcariocalpontaltda.com.br<br><br>
+  ©️ 2026 Calcario Calponta LTDA. Todos os direitos reservados.
+  <div class="footer-links">
+    <a href="#" id="privacy-link">Política de Privacidade</a>
+    <a href="#home" class="back-top">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<!-- MODAL PRIVACIDADE -->
+<div class="modal-overlay" id="privacy-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close-btn">✕</button>
+    <h2>Política de Privacidade</h2>
+    <p><strong>Calcario Calponta LTDA</strong><br>
+    CNPJ: 02.592.857/0001-73<br>
+    Endereço: Fazenda Três Barras, Área 01, S/N, Itaiacoca, Ponta Grossa – PR, CEP 84110-000</p>
+
+    <h3>1. Finalidade</h3>
+    <p>Esta Política de Privacidade descreve como a Calcario Calponta LTDA coleta, utiliza, armazena e protege dados pessoais de clientes, parceiros, fornecedores e usuários que interagem conosco por meio de nossos canais de comunicação ou durante a contratação e execução de nossos serviços.</p>
+
+    <h3>2. Dados Coletados</h3>
+    <p>Coletamos apenas os dados necessários para as finalidades descritas nesta política, incluindo:</p>
+    <ul>
+      <li>Nome, e-mail, telefone e informações necessárias ao atendimento;</li>
+      <li>Registros de comunicação, contratos, propostas e histórico de atendimento;</li>
+      <li>Dados de navegação (quando aplicável), conforme políticas das plataformas utilizadas.</li>
+    </ul>
+
+    <h3>3. Uso dos Dados</h3>
+    <p>Os dados pessoais coletados são utilizados para:</p>
+    <ul>
+      <li>Prestação e gestão dos serviços comercializados;</li>
+      <li>Comunicação operacional, administrativa e contratual;</li>
+      <li>Cumprimento de obrigações legais e regulatórias;</li>
+      <li>Melhoria contínua dos serviços e processos internos.</li>
+    </ul>
+
+    <h3>4. Compartilhamento de Dados</h3>
+    <p>Não comercializamos dados pessoais. O compartilhamento ocorre apenas com parceiros essenciais à execução dos serviços, mediante confidencialidade, ou quando exigido por lei, ordem judicial ou autoridade competente.</p>
+
+    <h3>5. Direitos do Titular (LGPD)</h3>
+    <p>Nos termos da LGPD (Lei nº 13.709/2018), o titular pode solicitar confirmação de tratamento, acesso, correção, anonimização, bloqueio, eliminação, portabilidade e revogação de consentimentos.</p>
+
+    <h3>6. Armazenamento e Segurança</h3>
+    <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perdas ou divulgações indevidas.</p>
+
+    <h3>7. Contato</h3>
+    <p>📞 Telefone: (45) 98123-6578<br>✉️ E-mail: contato@calcariocalpontaltda.com.br</p>
+
+    <p style="margin-top:1.2rem; font-size:0.8rem;">Calcario Calponta LTDA — CNPJ 02.592.857/0001-73 — ©️ 2026. Todos os direitos reservados.</p>
+  </div>
+</div>
+
+<script>
+  const privacyLink = document.getElementById('privacy-link');
+  const privacyModal = document.getElementById('privacy-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  privacyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.classList.add('active');
+  });
+  modalCloseBtn.addEventListener('click', () => {
+    privacyModal.classList.remove('active');
+  });
+  privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) privacyModal.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
